@@ -24,9 +24,6 @@ const Heading=styled.h1`
     }
 
 `
-const Images=styled(Image)`
-    height:50px;
-`
 
 
 const landing = () => {
@@ -34,7 +31,7 @@ const landing = () => {
     <Landing>
       <Heading>MORE THAN JUST<br/> SHORTER LINKS</Heading>
       <div>
-        <Images src={img}></Images>
+        <Image src={img}></Image>
       </div>
     </Landing>
   )

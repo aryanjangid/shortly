@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Section3 from './information'
+import Information from './information'
 import copy from "copy-to-clipboard";
 
-const Section = styled.div`
+const LinkShortnerSection = styled.div`
   background-color:#f0f1f6;
   text-align:center;
   padding:2rem 2rem;
@@ -26,7 +26,6 @@ const SearchDiv = styled.div`
   }
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   form{
-    // margin:1rem;
     display:flex;
     justify-content:space-between;
 
@@ -35,7 +34,6 @@ const SearchDiv = styled.div`
     }
   }
   input{
-    // font-family: 'Poppins', sans-serif;
     font-weight:500;
     color:#F37878;
     width:80%;
@@ -207,7 +205,7 @@ const linkShortner = () => {
   }
 
   return (
-    <Section>
+    <LinkShortnerSection>
       <SearchDiv>
         <form onsubmit="required()">
           <input type="text" placeholder="Shorten a link here." onChange={e => setLongLink(e.target.value)} />
@@ -231,8 +229,8 @@ const linkShortner = () => {
           </>
         ) : ''}
       </div>
-      <Section3 />
-    </Section >
+      <Information />
+    </LinkShortnerSection >
   )
 }
 

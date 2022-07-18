@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import img from '..//../Assets/icon-brand-recognition.svg';
@@ -74,13 +74,48 @@ const Line=styled.div`
     }
 `
 
+const CardData=[
+    {
+        imagesource:img,
+        heading:"Brand Recognition",
+        details:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    },
+    {
+        imagesource:img,
+        heading:"Brand Recognition",
+        details:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    },
+    {
+        imagesource:img,
+        heading:"Brand Recognition",
+        details:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    },
+]
+
 const section3 = () => {
+
   return (
     <Statistics>
         <Heading>Advanced Statistics</Heading>
         <SubHeading>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</SubHeading>
         <Boxes>
-            <Card>
+            {CardData.map((data,index)=>{
+                return(
+                    <>
+                    <Card>
+                        <ImgDiv>
+                            <Image src={data.imagesource}></Image>
+                        </ImgDiv>
+                        <h2>{data.heading}</h2>
+                        <p>{data.details}</p>
+                    </Card>
+                    {index<2?<Line></Line>:<></>}
+                    </>
+                )
+                
+            })}
+           
+            {/* <Card>
                 <ImgDiv>
                     <Image src={img}></Image>
                 </ImgDiv>
@@ -94,15 +129,7 @@ const section3 = () => {
                 </ImgDiv>
                 <h2>Brand Recognition</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-            </Card>
-            <Line></Line>
-            <Card>
-                <ImgDiv>
-                    <Image src={img}></Image>
-                </ImgDiv>
-                <h2>Brand Recognition</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-            </Card>
+            </Card> */}
         </Boxes>
     </Statistics>
   )

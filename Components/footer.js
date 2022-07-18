@@ -20,7 +20,7 @@ const Footer = styled.div`
     }
 `
 
-const Col1 = styled.div`
+const CompanyDetails = styled.div`
     margin:0 2rem;
     padding-left:5rem;
     width:30%;
@@ -58,7 +58,7 @@ const Social = styled.div`
     }
 `
 
-const Col2 = styled.div`
+const OtherPagesLinks = styled.div`
     margin:0 2rem;
     padding 1rem 2rem;
 `
@@ -84,10 +84,32 @@ const SubLinks = styled.h5`
     }
 `
 
+const MenuLinks=[
+    {
+        heading:"Feature",
+        subLinks1:"Link Shorting",
+        subLinks2:"Branded Linkes",
+        subLinks3:"Analytics",
+    },
+    {
+        heading:"Resources",
+        subLinks1:"Blog",
+        subLinks2:"Developers",
+        subLinks3:"Support",
+    },
+    {
+        heading:"Company",
+        subLinks1:"Our Team",
+        subLinks2:"About",
+        subLinks3:"Contact",
+    }
+]
+
+
 const footer = () => {
     return (
         <Footer>
-            <Col1>
+            <CompanyDetails>
                 <h1>Shortly</h1>
                 <Social mobile>
                     <Linkes><Link href="/"><Image src={facebook}></Image></Link></Linkes>
@@ -95,26 +117,17 @@ const footer = () => {
                     <Linkes><Link href="/"><Image src={pinterest}></Image></Link></Linkes>
                     <Linkes><Link href="/"><Image src={instagram}></Image></Link></Linkes>
                 </Social>
-            </Col1>
-            <Col2>
-                <Heading>Features</Heading>
-                <SubLinks>Link Shorting</SubLinks>
-                <SubLinks>Branded Linkes</SubLinks>
-                <SubLinks>Analytics</SubLinks>
-            </Col2>
-            <Col2>
-                <Heading>Resouces</Heading>
-                <SubLinks>Blog</SubLinks>
-                <SubLinks>Developers</SubLinks>
-                <SubLinks>Support</SubLinks>
-            </Col2>
-            <Col2>
-                <Heading>Company</Heading>
-                <SubLinks>About</SubLinks>
-                <SubLinks>Our Team</SubLinks>
-                <SubLinks>Careers</SubLinks>
-                <SubLinks>Contact</SubLinks>
-            </Col2>
+            </CompanyDetails>
+            {MenuLinks.map((data)=>{
+                return(
+                    <OtherPagesLinks>
+                    <Heading>{data.heading}</Heading>
+                    <SubLinks>{data.subLinks1}</SubLinks>
+                    <SubLinks>{data.subLinks2}</SubLinks>
+                    <SubLinks>{data.subLinks3}</SubLinks>
+                </OtherPagesLinks>
+                )
+            })}
             <Social>
                     <Linkes><Link href="/"><Image src={facebook}></Image></Link></Linkes>
                     <Linkes><Link href="/"><Image src={twitter}></Image></Link></Linkes>
