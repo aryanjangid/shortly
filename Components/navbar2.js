@@ -1,125 +1,103 @@
-// import React from 'react'
-// import styled from 'styled-components';
-// import Link from 'next/link';
-// import { useState } from 'react';
-// import LogoImg from '../Assets/logo.svg'
+import React, { useState } from "react";
+import styled from "styled-components";
+import Link from "next/link";
 
-// export const NavbarContainer = styled.nav`
-//   width: 100%;
-//   height: ${(props) => (props.extendNavbar ? "100vh" : "80px")};
-//   background-color: black;
-//   display: flex;
-//   flex-direction: column;
-//   @media (min-width: 700px) {
-//     height: 80px;
-//   }
-// `;
+const MenuLink = styled.a`
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: grey;
+  transition: all 0.3s ease-in;
+  font-size: 0.9rem;
+  &:hover {
+    color: #2ad1d3;
+  }
+`;
 
-// export const LeftContainer = styled.div`
-//   flex: 70%;
-//   display: flex;
-//   align-items: center;
-//   padding-left: 5%;
-// `;
+const Nav = styled.div`
+  font-family: 'Poppins', sans-serif;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  @media (max-width: 768px){
+    justify-content: space-between;
+  }
+`;
 
-// export const RightContainer = styled.div`
-//   flex: 30%;
-//   display: flex;
-//   justify-content: flex-end;
-//   padding-right: 50px;
-// `;
+const CompanyName = styled.a`
+  
+  padding: 1rem 0;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+  cursor: pointer;
+  span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color:#383838;
+  }
+`;
 
-// export const NavbarInnerContainer = styled.div`
-//   width: 100%;
-//   height: 80px;
-//   display: flex;
-// `;
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
+  }
+`;
 
-// export const NavbarLinkContainer = styled.div`
-//   display: flex;
-// `;
+const Hamburger = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    height: 2px;
+    width: 25px;
+    background: grey;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`
 
-// export const NavbarLink = styled(Link)`
-//   color: white;
-//   font-size: x-large;
-//   font-family: Arial, Helvetica, sans-serif;
-//   text-decoration: none;
-//   margin: 10px;
-//   @media (max-width: 700px) {
-//     display: none;
-//   }
-// `;
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+        <Link href="/">
+        <CompanyName href="">
+            <span>Shortly</span>
+        </CompanyName>
+        </Link>
+      
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <Link href="/resources"><MenuLink href="">Resources</MenuLink></Link>
+        <Link href="/pricing"><MenuLink href="">Pricing</MenuLink></Link>
+        <Link href="/feature"><MenuLink href="">Feature</MenuLink></Link>
+      </Menu>
+    </Nav>
+  );
+};
 
-// export const NavbarLinkExtended = styled(Link)`
-//   color: white;
-//   font-size: x-large;
-//   font-family: Arial, Helvetica, sans-serif;
-//   text-decoration: none;
-//   margin: 10px;
-// `;
-
-// export const Logo = styled.img`
-//   margin: 10px;
-//   max-width: 180px;
-//   height: auto;
-// `;
-
-// export const OpenLinksButton = styled.button`
-//   width: 70px;
-//   height: 50px;
-//   background: none;
-//   border: none;
-//   color: white;
-//   font-size: 45px;
-//   cursor: pointer;
-//   @media (min-width: 700px) {
-//     display: none;
-//   }
-// `;
-
-// export const NavbarExtendedContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   @media (min-width: 700px) {
-//     display: none;
-//   }
-// `;
-
-// const navbar2 = () => {
-//     const [extendNavbar, setExtendNavbar] = useState(false);
-//     return (
-//       <NavbarContainer extendNavbar={extendNavbar}>
-//         <NavbarInnerContainer>
-//           <LeftContainer>
-//             <NavbarLinkContainer>
-//               <NavbarLink to="/"> Home</NavbarLink>
-//               <NavbarLink to="/products"> Products</NavbarLink>
-//               <NavbarLink to="/contact"> Contact Us</NavbarLink>
-//               <NavbarLink to="/about"> About Us</NavbarLink>
-//               <OpenLinksButton
-//                 onClick={() => {
-//                   setExtendNavbar((curr) => !curr);
-//                 }}
-//               >
-//                 {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
-//               </OpenLinksButton>
-//             </NavbarLinkContainer>
-//           </LeftContainer>
-//           <RightContainer>
-//             <Logo src={LogoImg}></Logo>
-//           </RightContainer>
-//         </NavbarInnerContainer>
-//         {extendNavbar && (
-//           <NavbarExtendedContainer>
-//             <NavbarLinkExtended href="/"> Home</NavbarLinkExtended>
-//             <NavbarLinkExtended href="/feature"> Feature</NavbarLinkExtended>
-//             <NavbarLinkExtended href="/resources">Resources</NavbarLinkExtended>
-//             <NavbarLinkExtended href="/pricing"> Pricing</NavbarLinkExtended>
-//           </NavbarExtendedContainer>
-//         )}
-//       </NavbarContainer>
-//     )
-// }
-
-// export default navbar2
+export default Navbar;

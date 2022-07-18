@@ -21,7 +21,7 @@ const SearchDiv = styled.div`
   top:-5rem;
   border-radius:0.5rem;
   @media only screen and (max-width: 600px){
-    padding:1rem 1rem;
+    padding:2rem 1rem;
     width:100%
   }
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

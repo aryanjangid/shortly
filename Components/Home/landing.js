@@ -18,7 +18,7 @@ const Heading=styled.h1`
 
     @media only screen and (max-width: 600px){
         font-size:2.5rem;
-        margin-top:5rem;
+        margin-top:2rem;
         padding:0 1rem;
         font-weight:800;
     }
