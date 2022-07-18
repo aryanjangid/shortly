@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Information from './information'
 import copy from "copy-to-clipboard";
+import background from '../../Assets/Meteor.png';
 
 const LinkShortnerSection = styled.div`
   background-color:#f0f1f6;
@@ -179,6 +180,7 @@ const CopyLink = styled.div`
 
 
 const linkShortner = () => {
+  
 
   const [links, setLinks] = useState([]);
   const [done, setDone] = useState(false);
