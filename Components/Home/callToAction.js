@@ -9,11 +9,14 @@ const Section=styled.div`
     text-align:center;
     padding-bottom:3rem;
     h1{
-        margin:1rem 0;
+        margin:1rem;
+    }
+    div{
+      margin-top:3rem;
     }
 `
 
-const StyledLink=styled.div`
+const StyledLink=styled.a`
     background-color:#9be3e2;
     text-align:center;
     width:fit-content;
@@ -23,13 +26,16 @@ const StyledLink=styled.div`
     padding:1rem 2rem;
     border-radius: 0.5rem;
     font-family: 'Poppins', sans-serif;
+    margin-top:1rem;
 `
 
 const section4 = () => {
   return (
     <Section>
         <h1>Boost your link today</h1>
-        <Link href="/"><StyledLink>Get Started</StyledLink></Link>
+        <div>
+          <Link href="/"><StyledLink>Get Started</StyledLink></Link>
+        </div>
     </Section>
   )
 }

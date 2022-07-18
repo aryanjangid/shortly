@@ -6,13 +6,16 @@ import img from '..//../Assets/icon-brand-recognition.svg';
 const Statistics=styled.div`
     text-align: center;
     margin:2rem 0;
-    
+    @media only screen and (max-width: 600px){
+        margin-top:0;
+    }
 `
 
 const Heading=styled.h1`
     font-size:2.2rem;
+    white-space: nowrap;
     @media only screen and (max-width: 600px){
-        margin-top:4rem;
+        margin-top:-2rem;
     }
 `
 

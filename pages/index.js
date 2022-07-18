@@ -1,6 +1,6 @@
 import Landing from "../Components/Home/landing"
-import Section2 from "../Components/Home/section2"
-import Section4 from "../Components/Home/section4"
+import Section2 from "../Components/Home/linkShortner"
+import Section4 from "../Components/Home/callToAction"
 
 export default function Home() {
   return (
