@@ -112,15 +112,15 @@ const footer = () => {
             <CompanyDetails>
                 <h1>Shortly</h1>
                 <Social mobile>
-                    <Linkes><Link href="/"><Image src={facebook}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={twitter}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={pinterest}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={instagram}></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={facebook} alt="facebook"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={twitter} alt="twitter"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={pinterest} alt="pinterest"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={instagram} alt="instagram"></Image></Link></Linkes>
                 </Social>
             </CompanyDetails>
-            {MenuLinks.map((data)=>{
+            {MenuLinks.map((data,index)=>{
                 return(
-                    <OtherPagesLinks>
+                    <OtherPagesLinks key={index}>
                     <Heading>{data.heading}</Heading>
                     <SubLinks>{data.subLinks1}</SubLinks>
                     <SubLinks>{data.subLinks2}</SubLinks>
@@ -129,10 +129,10 @@ const footer = () => {
                 )
             })}
             <Social>
-                    <Linkes><Link href="/"><Image src={facebook}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={twitter}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={pinterest}></Image></Link></Linkes>
-                    <Linkes><Link href="/"><Image src={instagram}></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={facebook} alt="facebook"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={twitter} alt="twitter"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={pinterest} alt="pinterest"></Image></Link></Linkes>
+                    <Linkes><Link href="/"><Image src={instagram} alt="instagram"></Image></Link></Linkes>
             </Social>
         </Footer>
     )

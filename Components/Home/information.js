@@ -97,14 +97,14 @@ const section3 = () => {
   return (
     <Statistics>
         <Heading>Advanced Statistics</Heading>
-        <SubHeading>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</SubHeading>
+        <SubHeading>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</SubHeading>
         <Boxes>
             {CardData.map((data,index)=>{
                 return(
                     <>
                     <Card>
                         <ImgDiv>
-                            <Image src={data.imagesource}></Image>
+                            <Image alt='card image' src={data.imagesource}></Image>
                         </ImgDiv>
                         <h2>{data.heading}</h2>
                         <p>{data.details}</p>

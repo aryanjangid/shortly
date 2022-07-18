@@ -31,7 +31,7 @@ const landing = () => {
     <Landing>
       <Heading>MORE THAN JUST<br/> SHORTER LINKS</Heading>
       <div>
-        <Image src={img}></Image>
+        <Image alt="vector Image" src={img}></Image>
       </div>
     </Landing>
   )

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Information from './information'
 import copy from "copy-to-clipboard";
-import background from '../../Assets/Meteor.png';
 
 const LinkShortnerSection = styled.div`
   background-color:#f0f1f6;
@@ -179,7 +178,7 @@ const CopyLink = styled.div`
 `
 
 
-const linkShortner = () => {
+const LinkShortner = () => {
   
 
   const [links, setLinks] = useState([]);
@@ -209,7 +208,7 @@ const linkShortner = () => {
   return (
     <LinkShortnerSection>
       <SearchDiv>
-        <form onsubmit="required()">
+        <form>
           <input type="text" placeholder="Shorten a link here." onChange={e => setLongLink(e.target.value)} />
           <button type="submit" onClick={handleClick}>Shorten It!</button>
         </form>
@@ -219,10 +218,10 @@ const linkShortner = () => {
           <>
             {
               links.map((link, index) => {
-                return (<Links>
+                return (<Links key={index}>
                   <p>{queryLink}</p>
                   <CopyLink>
-                    <a target="_blank" href={link}>{link}</a>
+                    <a rel="noreferrer" target="_blank" href={link}>{link}</a>
                     <button onClick={() => copyToClipboard(link, index)} >{copied[index]}</button>
                   </CopyLink>
                 </Links>)
@@ -236,4 +235,4 @@ const linkShortner = () => {
   )
 }
 
-export default linkShortner
+export default LinkShortner

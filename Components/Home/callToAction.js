@@ -50,7 +50,7 @@ const StyledLink=styled.a`
 
 
 
-const section4 = () => {
+const CallToAction = () => {
 
   function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
@@ -87,7 +87,7 @@ const section4 = () => {
 
   return (
     <Section>
-      {useWindowSize().width<600?<Image width={1000} src={background}></Image>:<Image width={3000} src={background}></Image>}
+      {useWindowSize().width<600?<Image alt='backgrundimage' width={1000} src={background}></Image>:<Image alt='backgrundimage' width={3000} src={background}></Image>}
         
         <h1>Boost your link today</h1>
         <div>
@@ -97,4 +97,4 @@ const section4 = () => {
   )
 }
 
-export default section4
+export default CallToAction;
